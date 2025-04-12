@@ -53,4 +53,10 @@ Em desenvolvimento — Fase inicial de estruturação, criação do ambiente vir
 - Bruno Thiago da Silva Brandino
 - Carlos Vinicius
 
+# Para rodar localmente
+bash dev.sh
+
+# Para preparar o projeto do zero
+bash setup.sh
+
 Feito com 💙 para a disciplina de Projeto Integrador da UNIVESP.
