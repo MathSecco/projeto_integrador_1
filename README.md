@@ -33,12 +33,27 @@ A proposta é facilitar o **registro de dados** relacionados à:
 ## 📁 Estrutura do projeto
 
 projeto_integrador_1/ 
-├── venv/ # Ambiente virtual (ignorado no Git) 
-├── src/ 
-│ └── index.py # Código de teste inicial
-├── requirements.txt # Dependências do Python 
-├── .gitignore 
-└── README.md
+./
+├── README.md
+├── dev.sh
+├── estrutura.txt
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── requirements.txt
+├── setup.sh
+├── src
+│   ├── modules
+│   │   ├── alimentacao
+│   │   ├── db.sqlite3
+│   │   ├── manage.py
+│   │   ├── ordenha
+│   │   ├── reproducao
+│   │   ├── saude
+│   │   └── sistemarural
+│   ├── static
+│   └── templates
+└── tailwind.config.js
 
 ## Status do projeto
 Em desenvolvimento — Fase inicial de estruturação, criação do ambiente virtual e definição do escopo funcional com base nas pesquisas feitas ate aqui.
