@@ -1,0 +1,55 @@
+:root {
+    --primary-color: #166534;
+    --btn-color: #3b82f6;
+    --radius: 0.5rem;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  #content h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+  
+  .module {
+    border-radius: var(--radius);
+    border: 1px solid #e5e7eb;
+    padding: 1rem;
+    background-color: #f9fafb;
+  }
+  
+  .button.default, input[type=submit] {
+    background-color: var(--btn-color);
+    color: white;
+    border-radius: var(--radius);
+    padding: 0.4rem 1rem;
+    border: none;
+  }
+  
+  .button.default:hover {
+    background-color: #2563eb;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #111827;
+      color: #e5e7eb;
+    }
+  
+    .module {
+      background-color: #1f2937;
+      border: 1px solid #374151;
+    }
+  
+    .button.default, input[type=submit] {
+      background-color: #3b82f6;
+    }
+  
+    .button.default:hover {
+      background-color: #60a5fa;
+    }
+  }
+  

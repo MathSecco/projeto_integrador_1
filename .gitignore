@@ -1,18 +1,44 @@
-# Ambiente virtual
+# === Ambiente Python ===
 venv/
-
-# Arquivos do VS Code
-.vscode/
-
-# Arquivos do sistema/macOS
-.DS_Store
-
-# Arquivos Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*.sqlite3
+*.log
+*.pot
+*.mo
 
-# Dependências salvas
+# === Configuração do Django ===
 *.env
 .env
+*.secret
+*.db
+
+# === Node.js ===
+node_modules/
+package-lock.json
+
+# === Tailwind/DaisyUI ===
+static/css/output.css
+staticfiles/
+
+# === Editor/IDE ===
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# === Sistema operacional ===
+.DS_Store
+Thumbs.db
+
+# === Arquivos temporários ===
+*.bak
+*.swp
+*.tmp
+*.log
+*.orig
+
+# === Outras pastas geradas ===
+coverage/
+dist/
+build/

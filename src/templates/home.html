@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Início{% endblock %}
+
+{% block content %}
+<section class="hero min-h-[70vh] mb-12" style="background-image: url('{% static "src/home-cow.jpg" %}');">
+  <div class="hero-overlay bg-opacity-50"></div>
+  <div class="hero-content text-center text-neutral-content">
+    <div class="max-w-xl">
+      <h1 class="text-4xl font-bold mb-4">Tecnologia simples no campo</h1>
+      <p class="mb-6">Gerencie sua produção de leite com um sistema feito para o pequeno produtor.</p>
+      <a href="{% url 'registrar_ordenha' %}" class="btn btn-primary">Registrar Ordenha</a>
+    </div>
+  </div>
+</section>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+  <a href="{% url 'registrar_ordenha' %}" class="btn btn-primary btn-lg w-full">🐄 Ordenha</a>
+  <a href="{% url 'registrar_alimentacao' %}" class="btn btn-success btn-lg w-full">🌾 Alimentação</a>
+  <a href="{% url 'registrar_saude' %}" class="btn btn-warning btn-lg w-full">💉 Saúde</a>
+  <a href="{% url 'registrar_reproducao' %}" class="btn btn-info btn-lg w-full">🧬 Reprodução</a>
+</div>
+{% endblock %}
