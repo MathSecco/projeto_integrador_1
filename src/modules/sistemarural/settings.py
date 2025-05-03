@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'alimentacao',
     'saude',
     'reproducao',
+
+    'usuarios'
 ]
 
 MIDDLEWARE = [

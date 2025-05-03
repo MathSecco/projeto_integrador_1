@@ -23,10 +23,17 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
+    
+    
     path('ordenha/', include('ordenha.urls')),
     path('alimentacao/', include('alimentacao.urls')),
     path('saude/', include('saude.urls')),
     path('reproducao/', include('reproducao.urls')),
+
+    path('usuario/', include('usuarios.urls')),
+
+
     path("tema/", views.teste),
+
 
 ]
