@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Sistema rural - Projeto Integrador UNIVESP",
   "scripts": {
-    "run:dev": "python backend/manage.py runserver",
-    "build:css": "tailwindcss -i ./backend/static/src/input.css -o ./backend/static/css/style.css --watch",
-    "dev": "concurrently \"npm run build:css\" \"npm run run:dev\""
+    "dev": "concurrently \"npm run build:css\" \"npm run run:dev\"",
+    "build:css": "tailwindcss -i ./backend/static/css/input.css -o ./backend/static/css/style.css --watch",
+    "run:dev": "python backend/manage.py runserver"
   },
   "dependencies": {
     "@tailwindcss/cli": "4.1.5"
