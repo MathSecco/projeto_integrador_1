@@ -3,9 +3,17 @@
   "version": "1.0.0",
   "description": "Sistema rural - Projeto Integrador UNIVESP",
   "scripts": {
-    "run:dev": "python src/modules/manage.py runserver"
+    "run:dev": "python backend/manage.py runserver",
+    "build:css": "tailwindcss -i ./backend/static/src/input.css -o ./backend/static/css/style.css --watch",
+    "dev": "concurrently \"npm run build:css\" \"npm run run:dev\""
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "4.1.5"
   },
   "devDependencies": {
-    "concurrently": "8.2.2"
+    "autoprefixer": "10.4.21",
+    "concurrently": "8.2.2",
+    "postcss": "8.5.3",
+    "tailwindcss": "4.1.5"
   }
 }

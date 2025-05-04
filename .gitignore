@@ -1,44 +1,26 @@
-# === Ambiente Python ===
-venv/
+# Python
 __pycache__/
-*.py[cod]
-*.sqlite3
-*.log
-*.pot
-*.mo
+*.pyc
+*.pyo
+*.pyd
+db.sqlite3
 
-# === Configuração do Django ===
-*.env
-.env
-*.secret
-*.db
+# Django static
+/staticfiles/
+/media/
 
-# === Node.js ===
-node_modules/
-package-lock.json
-
-# === Tailwind/DaisyUI ===
-static/css/output.css
-staticfiles/
-
-# === Editor/IDE ===
+# VSCode
 .vscode/
-.idea/
-*.sublime-workspace
-*.sublime-project
 
-# === Sistema operacional ===
-.DS_Store
-Thumbs.db
+# Node
+node_modules/
+frontend/node_modules/
 
-# === Arquivos temporários ===
-*.bak
-*.swp
-*.tmp
+# Ambiente virtual
+venv/
+
+# Env
+.env
+
+# Logs
 *.log
-*.orig
-
-# === Outras pastas geradas ===
-coverage/
-dist/
-build/
