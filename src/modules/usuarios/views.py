@@ -17,7 +17,7 @@ def login_view(request):
             login(request, user)
             return redirect("home")
         else:
-            messages.error(request, "Invalid username or password.")
+            messages.error(request, "Usuario ou senha inválidos.")
     else:
         form = AuthenticationForm()
     return render(request, "usuario/login.html", {"form": form})
@@ -36,10 +36,10 @@ def registro_view(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "Account created successfully!")
+            messages.success(request, "Conta criada com sucesso!")
             return redirect("login")
         else:
-            messages.error(request, "Please correct the errors below.")
+            messages.error(request, "Erro ao criar a conta.")
     else:
         form = UserCreationForm()
     return render(request, "usuario/registro.html", {"form": form})
@@ -51,10 +51,10 @@ def perfil_view(request):
         form = PerfilForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            messages.success(request, "Profile updated successfully!")
+            messages.success(request, "Perfil atualizado com sucesso!")
             return redirect("perfil")
         else:
-            messages.error(request, "Error updating profile.")
+            messages.error(request, "Erro ao atualizar o perfil.")
     else:
         form = PerfilForm(instance=request.user)
     return render(request, "usuario/perfil.html", {

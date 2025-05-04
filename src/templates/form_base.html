@@ -2,33 +2,24 @@
 {% load widget_tweaks %}
 
 {% block content %}
-<div class="card bg-base-100 shadow-xl p-8 max-w-xl mx-auto text-base-content">
-  <h2 class="text-3xl font-bold text-primary mb-6">{{ titulo }}</h2>
-
-  <form method="post" class="space-y-5">
+  <h2>{{ titulo }}</h2>
+  <form method="post">
     {% csrf_token %}
     {% for field in form %}
       <div>
-        <label class="label font-semibold">{{ field.label }}</label>
+        <label>{{ field.label }}</label>
+        {{ field }}
         {% if field.errors %}
-          {{ field|add_class:"input input-bordered w-full input-error" }}
-          <p class="text-error text-sm">{{ field.errors|join:", " }}</p>
-        {% else %}
-          {{ field|add_class:"input input-bordered w-full" }}
+          <p>{{ field.errors|join:", " }}</p>
         {% endif %}
       </div>
     {% endfor %}
-
-    <button type="submit" class="btn btn-success w-full">Salvar</button>
+    <button type="submit">Salvar</button>
   </form>
 
   {% if messages %}
     {% for message in messages %}
-      <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show"
-           class="alert alert-success mt-6 transition-opacity duration-500 ease-in-out">
-        {{ message }}
-      </div>
+      <div>{{ message }}</div>
     {% endfor %}
   {% endif %}
-</div>
 {% endblock %}

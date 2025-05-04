@@ -31,9 +31,4 @@ urlpatterns = [
     path('reproducao/', include('reproducao.urls')),
 
     path('usuario/', include('usuarios.urls')),
-
-
-    path("tema/", views.teste),
-
-
 ]

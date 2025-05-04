@@ -1,65 +1,39 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="pt-br"
-      x-data="{ theme: 'light' }"
-      x-init="
-        theme = localStorage.getItem('theme') || 'light';
-        $el.setAttribute('data-theme', theme);
-      "
-      :data-theme="theme">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>{% block title %}Farm APP{% endblock %}</title>
-  <link href="{% static 'css/output.css' %}" rel="stylesheet">
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <title>{% block title %}MuuControl{% endblock %}</title>
 </head>
-<body class="bg-base-200 text-base-content min-h-screen flex flex-col">
+<body>
 
   <!-- Topbar -->
-  <div class="bg-neutral text-neutral-content text-sm px-4 py-2 flex justify-between">
-    <span>Bem-vindo ao Sistema Rural — Controle de Ordenha</span>
-    <span>📧 contato@projeto.app | 📞 (11) 89999-9999</span>
+  <div>
+    <span>Bem-vindo ao MuuControl — Controle de Ordenha</span>
+    <span>contato@projeto.app | (11) 89999-9999</span>
   </div>
 
   <!-- Navbar -->
-  <nav class="navbar bg-base-100 text-base-content shadow">
-    <div class="container mx-auto flex justify-between items-center px-4 py-2">
-      <a href="{% url 'home' %}" class="text-xl font-bold text-primary">FARMAPP</a>
+  <nav>
+    <a href="{% url 'home' %}">MuuControl</a>
 
-      <ul class="menu menu-horizontal p-0 gap-2">
-        <li><a href="{% url 'registrar_ordenha' %}">Ordenha</a></li>
-        <li><a href="{% url 'registrar_alimentacao' %}">Alimentação</a></li>
-        <li><a href="{% url 'registrar_saude' %}">Saúde</a></li>
-        <li><a href="{% url 'registrar_reproducao' %}">Reprodução</a></li>
-      </ul>
-
-      <div class="flex items-center gap-2">
-        <button class="btn btn-sm btn-outline"
-                x-text="theme === 'dark' ? '☀️ Claro' : '🌙 Escuro'"
-                @click="
-                  theme = theme === 'dark' ? 'light' : 'dark';
-                  $root.setAttribute('data-theme', theme);
-                  localStorage.setItem('theme', theme);
-                ">
-        </button>
-
-        {% if user.is_authenticated %}
-          <div class="dropdown dropdown-end">
-            <div tabindex="0" role="button" class="btn btn-sm btn-outline">{{ user.username }}</div>
-            <ul class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-              <li><a href="{% url 'perfil' %}">Profile</a></li>
-              <li><a href="{% url 'logout' %}">Logout</a></li>
-            </ul>
-          </div>
-        {% else %}
-          <a href="{% url 'login' %}" class="btn btn-sm btn-outline">Login</a>
-        {% endif %}
+    {% if user.is_authenticated %}
+      <div>
+        <span>{{ user.username }}</span>
+        <ul>
+          <li><a href="{% url 'perfil' %}">Perfil</a></li>
+          <li><a href="{% url 'logout' %}">Sair</a></li>
+        </ul>
       </div>
-    </div>
+    {% else %}
+      <a href="{% url 'login' %}">Login</a>
+    {% endif %}
   </nav>
 
-  <main class="container mx-auto px-4 py-6 flex-grow">
+  <!-- Conteúdo -->
+  <main>
     {% block content %}{% endblock %}
   </main>
+
 </body>
 </html>

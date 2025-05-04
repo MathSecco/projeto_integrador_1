@@ -123,12 +123,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
-# para o runserver achar seu static/ na raiz do projeto:
-STATICFILES_DIRS = [ BASE_DIR.parent / "static" ]
+# STATIC_URL = 'static/'
+# # para o runserver achar seu static/ na raiz do projeto:
+# STATICFILES_DIRS = [ BASE_DIR.parent / "static" ]
 
-# pasta onde o collectstatic (deploy) irá “juntar” tudo
-STATIC_ROOT = BASE_DIR / "staticfiles"
+# # pasta onde o collectstatic (deploy) irá “juntar” tudo
+# STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
 # Default primary key field type
