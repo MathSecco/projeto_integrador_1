@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class SaudeConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'saude'
+    name = 'apps.saude'

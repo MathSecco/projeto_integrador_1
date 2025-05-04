@@ -25,10 +25,10 @@ urlpatterns = [
     path('', home, name='home'),
     
     
-    path('ordenha/', include('ordenha.urls')),
-    path('alimentacao/', include('alimentacao.urls')),
-    path('saude/', include('saude.urls')),
-    path('reproducao/', include('reproducao.urls')),
+    path('ordenha/', include('apps.ordenha.urls')),
+    path('alimentacao/', include('apps.alimentacao.urls')),
+    path('saude/', include('apps.saude.urls')),
+    path('reproducao/', include('apps.reproducao.urls')),
 
-    path('usuario/', include('usuarios.urls')),
+    path('usuario/', include('apps.usuarios.urls')),
 ]
