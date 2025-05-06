@@ -1,0 +1,20 @@
+@import 'tailwindcss' source(none);
+@source './backend/templates';
+
+@theme {
+    --color-fundo: var(--fundo);
+    --color-primario: var(--primario);
+    --color-secundario: var(--secundario);
+    --color-destaque: var(--destaque);
+    --color-texto: var(--texto);
+}
+
+@layer base {
+ :root {
+        --fundo: #fefae0;
+        --primario: #2f855a;
+        --secundario: #dd6b20;
+        --destaque: #2c5282;
+        --texto: #1a202c;
+    }
+}

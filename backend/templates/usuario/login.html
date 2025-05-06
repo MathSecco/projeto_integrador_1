@@ -8,17 +8,20 @@
     {% csrf_token %}
     {% for field in form %}
       <div>
-        <label class="block font-medium">{{ field.label }}</label>
+        <label class="block font-medium mb-1">{{ field.label }}</label>
         {{ field|add_class:"w-full px-3 py-2 border border-gray-300 rounded" }}
         {% if field.errors %}
-          <p class="text-red-600 text-sm">{{ field.errors|join:", " }}</p>
+          <p class="text-red-600 text-sm mt-1">{{ field.errors|join:", " }}</p>
         {% endif %}
       </div>
     {% endfor %}
-    <button type="submit" class="w-full bg-secundario text-white py-2 rounded hover:bg-orange-700">Login</button>
+    <button type="submit" class="w-full bg-secundario text-white py-2 rounded hover:bg-orange-700">
+      Login
+    </button>
   </form>
   <p class="text-sm mt-4 text-center">
-    Ainda não tem conta? <a href="{% url 'registro' %}" class="text-destaque hover:underline">Cadastre-se</a>
+    Ainda não tem conta?
+    <a href="{% url 'registro' %}" class="text-destaque hover:underline">Cadastre-se</a>
   </p>
 </div>
 {% endblock %}

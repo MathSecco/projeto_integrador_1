@@ -5,20 +5,12 @@
 
 {% block content %}
 <section class="bg-white p-8 rounded-lg shadow-md text-center">
-  <img
-    class="mx-auto mb-4 rounded"
-    src="{% static 'src/home-cow-2.jpg' %}"
-    alt="Vaca no campo"
-  />
+  <img class="mx-auto mb-4 rounded" src="{% static 'src/home-cow-2.jpg' %}" alt="Vaca no campo" />
   <h1 class="text-2xl font-bold text-primario">Tecnologia simples no campo</h1>
   <p class="text-gray-600 mt-2">
-    Gerencie sua produção de leite com um sistema pensado para o pequeno
-    produtor.
+    Gerencie sua produção de leite com um sistema pensado para o pequeno produtor.
   </p>
-  <a
-    href="{% url 'login' %}"
-    class="inline-block mt-4 bg-secundario text-white px-6 py-2 rounded hover:bg-orange-700"
-  >
+  <a href="{% url 'login' %}" class="inline-block mt-4 bg-secundario text-white px-6 py-2 rounded hover:bg-orange-700">
     Faça seu login
   </a>
 </section>
