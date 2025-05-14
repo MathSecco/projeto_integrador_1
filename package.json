@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Sistema rural - Projeto Integrador UNIVESP",
   "scripts": {
-    "dev": "concurrently \"npm run build:css\" \"npm run run:dev\"",
+    "format": "prettier . --write",
+    "check-format": "prettier . --check",
+    "dev": "npm run check-format && concurrently \"npm run build:css\" \"npm run run:dev\"",
     "build:css": "tailwindcss -i ./input.css -o ./backend/static/css/output.css --watch",
     "run:dev": "python backend/manage.py runserver"
   },
@@ -13,6 +15,8 @@
   "devDependencies": {
     "autoprefixer": "10.4.21",
     "concurrently": "8.2.2",
+    "prettier": "3.5.3",
+    "prettier-plugin-tailwindcss": "0.6.11",
     "tailwindcss": "4.1.5"
   }
 }

@@ -2,19 +2,19 @@
 @source './backend/templates';
 
 @theme {
-    --color-fundo: var(--fundo);
-    --color-primario: var(--primario);
-    --color-secundario: var(--secundario);
-    --color-destaque: var(--destaque);
-    --color-texto: var(--texto);
+  --color-fundo: var(--fundo);
+  --color-primario: var(--primario);
+  --color-secundario: var(--secundario);
+  --color-destaque: var(--destaque);
+  --color-texto: var(--texto);
 }
 
 @layer base {
- :root {
-        --fundo: rgb(43, 61, 45);
-        --primario: rgb(47, 51, 34);
-        --secundario: rgb(47, 51, 34);
-        --destaque: rgb(47, 51, 34);
-        --texto: rgb(0, 0, 0);
-    }
+  :root {
+    --fundo: rgb(43, 61, 45);
+    --primario: rgb(47, 51, 34);
+    --secundario: rgb(47, 51, 34);
+    --destaque: rgb(47, 51, 34);
+    --texto: rgb(0, 0, 0);
+  }
 }
