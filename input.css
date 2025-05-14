@@ -11,10 +11,10 @@
 
 @layer base {
  :root {
-        --fundo: #fefae0;
-        --primario: #2f855a;
-        --secundario: #dd6b20;
-        --destaque: #2c5282;
-        --texto: #1a202c;
+        --fundo: rgb(43, 61, 45);
+        --primario: rgb(47, 51, 34);
+        --secundario: rgb(47, 51, 34);
+        --destaque: rgb(47, 51, 34);
+        --texto: rgb(0, 0, 0);
     }
 }

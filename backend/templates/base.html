@@ -38,9 +38,11 @@
     </nav>
 
     <!-- Conteúdo -->
+    {% block fullwidth %}
     <main class="flex-grow max-w-4xl mx-auto px-4 py-8">
       {% block content %}{% endblock %}
     </main>
+    {% endblock %}
 
     <!-- Rodapé opcional -->
     <footer class="bg-white text-center text-xs py-4 border-t text-gray-500">

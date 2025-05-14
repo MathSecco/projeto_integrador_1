@@ -3,15 +3,23 @@
 
 {% block title %}Início{% endblock %}
 
-{% block content %}
-<section class="bg-white p-8 rounded-lg shadow-md text-center">
-  <img class="mx-auto mb-4 rounded" src="{% static 'src/home-cow-2.jpg' %}" alt="Vaca no campo" />
-  <h1 class="text-2xl font-bold text-primario">Tecnologia simples no campo</h1>
-  <p class="text-gray-600 mt-2">
-    Gerencie sua produção de leite com um sistema pensado para o pequeno produtor.
-  </p>
-  <a href="{% url 'login' %}" class="inline-block mt-4 bg-secundario text-white px-6 py-2 rounded hover:bg-orange-700">
-    Faça seu login
-  </a>
+{% block fullwidth %}
+<section class="relative w-full h-[85vh] bg-cover bg-center" style="background-image: url('{% static 'src/home-cow-2.jpg' %}');">
+  <!-- Camada escura sobre a imagem -->
+  <div class="absolute inset-0 bg-black/40"></div>
+
+  <!-- Conteúdo alinhado à esquerda -->
+  <div class="relative z-10 h-full w-full flex flex-col justify-center items-start px-6 sm:px-16 text-left">
+    <h1 class="text-white text-4xl sm:text-5xl font-bold leading-tight drop-shadow">
+      Tecnologia simples no campo
+    </h1>
+    <p class="text-white mt-4 text-lg max-w-2xl drop-shadow">
+      Gerencie sua produção de leite com um sistema pensado para o pequeno produtor.
+    </p>
+    <a href="{% url 'login' %}" class="mt-6 bg-secundario text-white px-6 py-2 rounded hover:bg-green-950 transition shadow">
+      Faça seu login
+    </a>
+  </div>
 </section>
 {% endblock %}
+
