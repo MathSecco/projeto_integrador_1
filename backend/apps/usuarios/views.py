@@ -28,12 +28,14 @@ def logout_view(request):
     return redirect("home")
 
 
+from .forms import RegistroForm, PerfilForm
+
 def registro_view(request):
     if request.user.is_authenticated:
         return redirect("home")
 
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = RegistroForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, "Conta criada com sucesso!")
@@ -41,7 +43,7 @@ def registro_view(request):
         else:
             messages.error(request, "Erro ao criar a conta.")
     else:
-        form = UserCreationForm()
+        form = RegistroForm()
     return render(request, "usuario/registro.html", {"form": form})
 
 

@@ -1,26 +1,64 @@
 {% extends "base.html" %}
 {% load widget_tweaks %}
 
+{% block title %}Cadastro{% endblock %}
+
 {% block content %}
-<div class="bg-white p-8 rounded shadow-md max-w-md mx-auto">
-  <h2 class="text-2xl font-semibold mb-4 text-destaque">Cadastro</h2>
+<div class="bg-white p-8 rounded shadow-md max-w-3xl mx-auto space-y-6">
+  <h2 class="text-3xl font-bold text-destaque mb-4">Criar conta</h2>
+
   <form method="post" class="space-y-4">
     {% csrf_token %}
-    {% for field in form %}
+
+    <div class="grid md:grid-cols-2 gap-6">
       <div>
-        <label class="block font-medium mb-1">{{ field.label }}</label>
-        {{ field|add_class:"w-full px-3 py-2 border border-gray-300 rounded" }}
-        {% if field.errors %}
-          <p class="text-red-600 text-sm mt-1">{{ field.errors|join:", " }}</p>
-        {% endif %}
+        <label class="block font-semibold mb-1 text-gray-700">Nome de usuário</label>
+        {{ form.username|add_class:"w-full px-4 py-2 border border-gray-300 rounded" }}
       </div>
-    {% endfor %}
-    <button type="submit" class="w-full bg-secundario text-white py-2 rounded hover:bg-green-950">
-      Registrar
+      <div>
+        <label class="block font-semibold mb-1 text-gray-700">E-mail</label>
+        {{ form.email|add_class:"w-full px-4 py-2 border border-gray-300 rounded" }}
+      </div>
+      <div>
+        <label class="block font-semibold mb-1 text-gray-700">Nome completo</label>
+        {{ form.nome_completo|add_class:"w-full px-4 py-2 border border-gray-300 rounded" }}
+      </div>
+      <div>
+        <label class="block font-semibold mb-1 text-gray-700">Nome social (opcional)</label>
+        {{ form.nome_social|add_class:"w-full px-4 py-2 border border-gray-300 rounded" }}
+      </div>
+      <div>
+        <label class="block font-semibold mb-1 text-gray-700">Telefone (WhatsApp)</label>
+        {{ form.telefone|add_class:"w-full px-4 py-2 border border-gray-300 rounded" }}
+      </div>
+      <div>
+        <label class="block font-semibold mb-1 text-gray-700">CPF/CNPJ</label>
+        {{ form.cpf_cnpj|add_class:"w-full px-4 py-2 border border-gray-300 rounded" }}
+      </div>
+      <div class="md:col-span-2">
+        <label class="block font-semibold mb-1 text-gray-700">Endereço / Localização</label>
+        {{ form.endereco|add_class:"w-full px-4 py-2 border border-gray-300 rounded" }}
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <label class="block font-semibold mb-1 text-gray-700">Senha</label>
+        {{ form.password1|add_class:"w-full px-4 py-2 border border-gray-300 rounded" }}
+      </div>
+      <div>
+        <label class="block font-semibold mb-1 text-gray-700">Confirmar senha</label>
+        {{ form.password2|add_class:"w-full px-4 py-2 border border-gray-300 rounded" }}
+      </div>
+    </div>
+
+    <button type="submit" class="w-full bg-secundario text-white py-2 rounded hover:bg-green-950 transition">
+      Criar conta
     </button>
   </form>
+
   <p class="text-sm mt-4 text-center">
-    Já tem uma conta?
+    Já tem conta?
     <a href="{% url 'login' %}" class="text-destaque hover:underline">Entrar</a>
   </p>
 </div>
