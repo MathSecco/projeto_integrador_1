@@ -1,5 +1,5 @@
 {% load static %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -14,34 +14,40 @@
       <span>contato@projeto.app | (11) 89999-9999</span>
     </div>
 
-    <!-- Navbar -->
-    <nav class="bg-white shadow px-4 py-3 flex justify-between items-center">
-      <a href="{% url 'home' %}" class="text-lg font-bold text-primario">
-        MuuControl
-      </a>
+    <!-- Navbar com layout em 3 partes -->
+    <nav class="bg-white shadow px-6 py-3">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <!-- ESQUERDA: Logo -->
+        <div>
+          <a href="{% url 'home' %}" class="text-lg font-bold text-primario">MuuControl</a>
+        </div>
 
-      {% if user.is_authenticated %}
-      <div class="flex items-center space-x-4 text-sm">
-        <span>{{ user.username }}</span>
-        <ul class="flex space-x-4">
-          <li>
-            <a href="{% url 'perfil' %}" class="text-destaque hover:underline">Perfil</a>
-          </li>
-          <li>
-            <a href="{% url 'logout' %}" class="text-secundario hover:underline">Sair</a>
-          </li>
+        <!-- CENTRO: Menu de navegação -->
+        {% if user.is_authenticated %}
+        <ul class="flex space-x-6 text-sm">
+          <li><a href="{% url 'registrar_ordenha' %}" class="text-destaque hover:underline">Ordenha</a></li>
+          <li><a href="{% url 'registrar_saude' %}" class="text-destaque hover:underline">Saúde</a></li>
+          <li><a href="{% url 'registrar_reproducao' %}" class="text-destaque hover:underline">Reprodução</a></li>
+          <li><a href="{% url 'registrar_alimentacao' %}" class="text-destaque hover:underline">Alimentação</a></li>
         </ul>
+        {% endif %}
+
+        <!-- DIREITA: Usuário / Perfil / Sair ou Login -->
+        <div class="flex items-center space-x-4 text-sm">
+          {% if user.is_authenticated %}
+          <a href="{% url 'perfil' %}" class="text-destaque hover:underline">Perfil</a>
+          <a href="{% url 'logout' %}" class="text-secundario hover:underline">Sair</a>
+          <span class="text-primario font-medium">{{ user.username }}</span>
+          {% else %}
+          <a href="{% url 'login' %}" class="text-destaque hover:underline">Login</a>
+          {% endif %}
+        </div>
       </div>
-      {% else %}
-      <a href="{% url 'login' %}" class="text-destaque hover:underline text-sm">Login</a>
-      {% endif %}
     </nav>
 
     <!-- Conteúdo -->
     {% block fullwidth %}
-    <main class="flex-grow max-w-4xl mx-auto px-4 py-8">
-      {% block content %}{% endblock %}
-    </main>
+    <main class="flex-grow max-w-4xl mx-auto px-4 py-8">{% block content %}{% endblock %}</main>
     {% endblock %}
 
     <!-- Rodapé opcional -->

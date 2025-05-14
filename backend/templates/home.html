@@ -5,10 +5,8 @@
 
 {% block fullwidth %}
 <section class="relative w-full h-[85vh] bg-cover bg-center" style="background-image: url('{% static 'src/home-cow-2.jpg' %}');">
-  <!-- Camada escura sobre a imagem -->
   <div class="absolute inset-0 bg-black/40"></div>
 
-  <!-- Conteúdo alinhado à esquerda -->
   <div class="relative z-10 h-full w-full flex flex-col justify-center items-start px-6 sm:px-16 text-left">
     <h1 class="text-white text-4xl sm:text-5xl font-bold leading-tight drop-shadow">
       Tecnologia simples no campo
@@ -16,10 +14,16 @@
     <p class="text-white mt-4 text-lg max-w-2xl drop-shadow">
       Gerencie sua produção de leite com um sistema pensado para o pequeno produtor.
     </p>
-    <a href="{% url 'login' %}" class="mt-6 bg-secundario text-white px-6 py-2 rounded hover:bg-green-950 transition shadow">
-      Faça seu login
-    </a>
+
+    {% if user.is_authenticated %}
+      <a href="{% url 'registrar_ordenha' %}" class="mt-6 bg-secundario text-white px-6 py-2 rounded hover:bg-green-950 transition shadow">
+        Ir para Registro de Ordenha
+      </a>
+    {% else %}
+      <a href="{% url 'login' %}" class="mt-6 bg-secundario text-white px-6 py-2 rounded hover:bg-green-950 transition shadow">
+        Faça seu login
+      </a>
+    {% endif %}
   </div>
 </section>
 {% endblock %}
-
