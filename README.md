@@ -25,8 +25,7 @@ A proposta é facilitar o **registro e gestão de dados** relacionados a:
 - Python 3.10
 - Django 5.2
 - Tailwind CSS 4
-- PostCSS + Autoprefixer
-- SQLite (padrão), com possibilidade de PostgreSQL
+- PostgreSQL
 - VS Code + WSL (Ubuntu)
 
 ---
@@ -74,9 +73,7 @@ projeto_integrador_1/
 🛠️ **Em desenvolvimento**  
 Atualmente na fase de:
 
-- Estruturação do ambiente
-- Configuração do framework
-- Definição do escopo funcional baseado nas pesquisas iniciais
+- refinamento da estrutura
 
 ---
 
