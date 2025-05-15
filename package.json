@@ -5,6 +5,8 @@
   "scripts": {
     "format": "prettier . --write",
     "check-format": "prettier . --check",
+    "makemigrations": "python ./backend/manage.py makemigrations",
+    "migrate": "python ./backend/manage.py migrate",
     "dev": "npm run check-format && concurrently \"npm run build:css\" \"npm run run:dev\"",
     "build:css": "tailwindcss -i ./input.css -o ./backend/static/css/output.css --watch",
     "run:dev": "python backend/manage.py runserver"
