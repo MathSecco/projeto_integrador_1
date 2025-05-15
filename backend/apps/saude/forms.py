@@ -7,5 +7,6 @@ class SaudeForm(forms.ModelForm):
         exclude = ['usuario']
         widgets = {
             'data': forms.DateInput(attrs={'type': 'date'}),
+            'proxima_dose': forms.DateInput(attrs={'type': 'date'}),
             'descricao': forms.Textarea(attrs={'rows': 3}),
         }

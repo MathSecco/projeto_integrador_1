@@ -1,4 +1,5 @@
 from pathlib import Path
+from decouple import config
 
 # Caminho base do projeto (raiz do repositório)
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -61,11 +62,23 @@ TEMPLATES = [
 # WSGI
 WSGI_APPLICATION = 'sistemarural.wsgi.application'
 
-# Banco de dados
+# Banco de dados sqlite3
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'backend' / 'db.sqlite3',
+#     }
+# }
+
+# Banco de dados PostgreSQL
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'backend' / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     }
 }
 

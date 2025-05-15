@@ -22,7 +22,7 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect("home")
+            return redirect("dashboard")
         else:
             messages.error(request, "Usuario ou senha inválidos.")
     else:

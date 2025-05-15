@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-6">
+
+<!-- Filtro de datas -->
+<form method="get" class="flex flex-wrap gap-4 items-end mb-6">
+  <div>
+    <label class="block text-sm font-medium text-white">Data inicial</label>
+    <input type="date" name="inicio" value="{{ inicio }}"
+      class="border rounded px-3 py-1 bg-white text-gray-800 shadow" />
+  </div>
+  <div>
+    <label class="block text-sm font-medium text-white">Data final</label>
+    <input type="date" name="fim" value="{{ fim }}"
+      class="border rounded px-3 py-1 bg-white text-gray-800 shadow" />
+  </div>
+  <div>
+    <button type="submit" class="bg-green-900 text-white px-4 py-2 rounded shadow">Filtrar</button>
+  </div>
+</form>
+
+  <!-- Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+    <div class="bg-white shadow rounded p-4">
+      <h2 class="text-sm font-semibold text-gray-500">Média diária (L)</h2>
+      <p class="text-2xl font-bold">{{ media }}</p>
+    </div>
+    <div class="bg-white shadow rounded p-4">
+      <h2 class="text-sm font-semibold text-gray-500">Ordenhas</h2>
+      <p class="text-2xl font-bold">{{ total_ordenha }}</p>
+    </div>
+    <div class="bg-white shadow rounded p-4">
+      <h2 class="text-sm font-semibold text-gray-500">Alimentações</h2>
+      <p class="text-2xl font-bold">{{ total_alimentacao }}</p>
+    </div>
+    <div class="bg-white shadow rounded p-4">
+      <h2 class="text-sm font-semibold text-gray-500">Eventos de Saúde</h2>
+      <p class="text-2xl font-bold">{{ total_saude }}</p>
+    </div>
+  </div>
+
+  <!-- Gráfico de produção de leite -->
+  <div class="bg-white shadow rounded p-6 mb-6">
+    <h2 class="text-lg font-semibold mb-4">Produção de leite por dia</h2>
+    <canvas id="graficoOrdenha"></canvas>
+  </div>
+
+  <!-- Reprodução e vacinas -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="bg-white shadow rounded p-4">
+      <h2 class="text-sm font-semibold text-gray-500 mb-1">Última reprodução</h2>
+        {% if ultima_reproducao %}
+          {% with ultima_reproducao.data|date:"d \\d\\e F \\d\\e Y" as data_formatada %}
+            <p class="text-lg font-bold">{{ data_formatada }}</p>
+          {% endwith %}
+          <p class="text-sm text-gray-600">Progresso estimado: {{ progresso_gestacao }}%</p>
+        {% else %}
+          <p class="text-gray-600">Nenhum dado de reprodução.</p>
+        {% endif %}
+    </div>
+    <div class="bg-white shadow rounded p-4">
+      <h2 class="text-sm font-semibold text-gray-500 mb-1">Vacinas</h2>
+      <p><span class="font-semibold text-red-600">{{ vacinas_atrasadas }}</span> atrasadas</p>
+      <p><span class="font-semibold text-green-600">{{ vacinas_proximas }}</span> agendadas</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('graficoOrdenha').getContext('2d');
+
+  const labels = {{ grafico_data|default:'[]'|safe }};
+  const data = {{ grafico_valores|default:'[]'|safe }};
+
+  if (labels.length && data.length) {
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Litros por dia',
+          data: data,
+          backgroundColor: 'rgba(59, 130, 246, 0.7)',
+          borderRadius: 6
+        }]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  } else {
+    ctx.canvas.parentNode.innerHTML += "<p class='text-gray-500 mt-4'>Nenhum dado para este período.</p>";
+  }
+</script>
+{% endblock %}

@@ -35,6 +35,9 @@
         <!-- DIREITA: Usuário / Perfil / Sair ou Login -->
         <div class="flex items-center space-x-4 text-sm">
           {% if user.is_authenticated %}
+          <li>
+            <a href="{% url 'dashboard' %}" class="text-destaque hover:underline">Dashboard</a>
+          </li>
           <a href="{% url 'perfil' %}" class="text-destaque hover:underline">Perfil</a>
           <a href="{% url 'logout' %}" class="text-secundario hover:underline">Sair</a>
           {% if user.perfil.foto %}
