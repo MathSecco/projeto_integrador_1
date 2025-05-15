@@ -5,7 +5,9 @@ from .forms import OrdenhaForm
 def registrar_ordenha(request):
     form = OrdenhaForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
-        form.save()
+        ordenha = form.save(commit=False)
+        ordenha.usuario = request.user
+        ordenha.save()
         messages.success(request, 'Ordenha registrada com sucesso!')
         return redirect('registrar_ordenha')
 

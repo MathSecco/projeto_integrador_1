@@ -5,7 +5,9 @@ from .forms import ReproducaoForm
 def registrar_reproducao(request):
     form = ReproducaoForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
-        form.save()
+        reproducao = form.save(commit=False)
+        reproducao.usuario = request.user
+        reproducao.save()
         messages.success(request, 'Reprodução registrada com sucesso!')
         return redirect('registrar_reproducao')
 

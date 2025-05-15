@@ -5,7 +5,9 @@ from .forms import SaudeForm
 def registrar_saude(request):
     form = SaudeForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
-        form.save()
+        saude = form.save(commit=False)
+        saude.usuario = request.user
+        saude.save()
         messages.success(request, 'Saúde registrada com sucesso!')
         return redirect('registrar_saude')
 

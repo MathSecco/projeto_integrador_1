@@ -1,9 +1,8 @@
 from django.db import models
-
-# Create your models here.
-from django.db import models
+from django.contrib.auth.models import User
 
 class Reproducao(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reproducao")
     animal_id = models.CharField(max_length=50)
     data = models.DateField()
     tipo_evento = models.CharField(max_length=50, choices=[

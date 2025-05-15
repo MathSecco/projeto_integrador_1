@@ -4,8 +4,13 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
 from django.contrib import messages
 
+
 from .models import Perfil
 from .forms import PerfilForm
+from apps.ordenha.models import Ordenha
+from apps.saude.models import Saude
+from apps.reproducao.models import Reproducao
+from apps.alimentacao.models import Alimentacao
 
 
 def login_view(request):
@@ -51,19 +56,18 @@ def registro_view(request):
 
 @login_required
 def perfil_view(request):
-    if request.method == "POST":
-        form = PerfilForm(request.POST, instance=request.user)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Perfil atualizado com sucesso!")
-            return redirect("perfil")
-        else:
-            messages.error(request, "Erro ao atualizar o perfil.")
-    else:
-        form = PerfilForm(instance=request.user)
+    user = request.user
+    ordenhas_count = Ordenha.objects.filter(usuario=user).count()
+    saudes_count = Saude.objects.filter(usuario=user).count()
+    reproducao_count = Reproducao.objects.filter(usuario=user).count()
+    alimentacao_count = Alimentacao.objects.filter(usuario=user).count()
+
     return render(request, "usuario/perfil.html", {
-        "form": form,
-        "usuario": request.user
+        "usuario": user,
+        "ordenha_count": ordenhas_count,
+        "saude_count": saudes_count,
+        "reproducao_count": reproducao_count,
+        "alimentacao_count": alimentacao_count
     })
 
 @login_required

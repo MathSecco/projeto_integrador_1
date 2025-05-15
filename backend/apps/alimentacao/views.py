@@ -5,7 +5,9 @@ from .forms import AlimentacaoForm
 def registrar_alimentacao(request):
     form = AlimentacaoForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
-        form.save()
+        alimentacao = form.save(commit=False)
+        alimentacao.usuario = request.user
+        alimentacao.save()
         messages.success(request, 'Alimentação registrada com sucesso!')
         return redirect('registrar_alimentacao')
 
