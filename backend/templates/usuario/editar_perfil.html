@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}Editar Perfil{% endblock %}
+
+{% block content %}
+<div class="bg-white p-8 rounded shadow-md max-w-4xl mx-auto space-y-6">
+  <h2 class="text-3xl font-bold text-destaque">Editar Informações do Perfil</h2>
+
+  <form method="post" class="space-y-6">
+    {% csrf_token %}
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <label class="block font-semibold mb-1 text-gray-700">Nome de usuário</label>
+        {{ form.username|add_class:"w-full px-4 py-2 border border-gray-300 rounded" }}
+      </div>
+      <div>
+        <label class="block font-semibold mb-1 text-gray-700">E-mail</label>
+        {{ form.email|add_class:"w-full px-4 py-2 border border-gray-300 rounded" }}
+      </div>
+      <div>
+        <label class="block font-semibold mb-1 text-gray-700">Nome completo</label>
+        {{ form.nome_completo|add_class:"w-full px-4 py-2 border border-gray-300 rounded" }}
+      </div>
+      <div>
+        <label class="block font-semibold mb-1 text-gray-700">Nome social (opcional)</label>
+        {{ form.nome_social|add_class:"w-full px-4 py-2 border border-gray-300 rounded" }}
+      </div>
+      <div>
+        <label class="block font-semibold mb-1 text-gray-700">Telefone (WhatsApp)</label>
+        {{ form.telefone|add_class:"w-full px-4 py-2 border border-gray-300 rounded" }}
+      </div>
+      <div>
+        <label class="block font-semibold mb-1 text-gray-700">CPF/CNPJ</label>
+        {{ form.cpf_cnpj|add_class:"w-full px-4 py-2 border border-gray-300 rounded" }}
+      </div>
+      <div class="md:col-span-2">
+        <label class="block font-semibold mb-1 text-gray-700">Endereço / Localização</label>
+        {{ form.endereco|add_class:"w-full px-4 py-2 border border-gray-300 rounded" }}
+      </div>
+    </div>
+
+    <button type="submit" class="w-full bg-secundario text-white py-2 rounded hover:bg-green-950 transition">
+      Salvar alterações
+    </button>
+  </form>
+</div>
+{% endblock %}

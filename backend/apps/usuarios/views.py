@@ -64,3 +64,14 @@ def perfil_view(request):
         "usuario": request.user
     })
 
+@login_required
+def editar_perfil_view(request):
+    if request.method == "POST":
+        form = PerfilForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Perfil atualizado com sucesso!")
+            return redirect("perfil")
+    else:
+        form = PerfilForm(instance=request.user)
+    return render(request, "usuario/editar_perfil.html", {"form": form})
