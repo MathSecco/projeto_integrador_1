@@ -8,6 +8,7 @@ class Perfil(models.Model):
     telefone = models.CharField(max_length=20)
     cpf_cnpj = models.CharField(max_length=20)
     endereco = models.CharField(max_length=255)
+    foto = models.ImageField(upload_to='perfil_fotos/', blank=True, null=True)  # 🆕
 
     def __str__(self):
         return self.nome_completo or self.user.username

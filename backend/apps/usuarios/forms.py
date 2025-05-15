@@ -33,6 +33,7 @@ class PerfilForm(forms.ModelForm):
     telefone = forms.CharField()
     cpf_cnpj = forms.CharField()
     endereco = forms.CharField()
+    foto = forms.ImageField(required=False)  # 🆕
 
     class Meta:
         model = User
@@ -55,6 +56,7 @@ class PerfilForm(forms.ModelForm):
         perfil.telefone = self.cleaned_data['telefone']
         perfil.cpf_cnpj = self.cleaned_data['cpf_cnpj']
         perfil.endereco = self.cleaned_data['endereco']
+        perfil.foto = self.cleaned_data.get('foto') or perfil.foto
         if commit:
             perfil.save()
         return user
