@@ -4,10 +4,14 @@ from .models import Ordenha
 class OrdenhaForm(forms.ModelForm):
     class Meta:
         model = Ordenha
-        fields = '__all__'
+        exclude = ['usuario']
         widgets = {
             'data': forms.DateInput(attrs={'type': 'date'}),
-            'quantidade_leite': forms.NumberInput(attrs={'step': '0.01'}),
+            'quantidade_leite': forms.NumberInput(attrs={
+                'step': '0.01',             # ✅ permite decimais
+                'inputmode': 'decimal',     # ✅ mobile-friendly
+                'placeholder': 'Litros (ex: 12.5)'  # opcional
+            }),
             'periodo': forms.Select(),
             'observacoes': forms.Textarea(attrs={'rows': 3}),
         }

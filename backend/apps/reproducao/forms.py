@@ -4,7 +4,7 @@ from .models import Reproducao
 class ReproducaoForm(forms.ModelForm):
     class Meta:
         model = Reproducao
-        fields = '__all__'
+        exclude = ['usuario']
         widgets = {
             'data': forms.DateInput(attrs={'type': 'date'}),
             'tipo': forms.TextInput(),
