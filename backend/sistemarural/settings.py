@@ -100,13 +100,14 @@ USE_I18N = True
 USE_TZ = True
 
 # Arquivos estáticos
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [ BASE_DIR / 'backend' / 'static' ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-# Configuração padrão para chaves primárias
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Configuração de arquivos de mídia
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Configuração padrão para chaves primárias
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
