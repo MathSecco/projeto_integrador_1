@@ -1,5 +1,6 @@
 from pathlib import Path
 from decouple import config
+import dj_database_url
 
 # Caminho base do projeto (raiz do repositório)
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -71,16 +72,21 @@ WSGI_APPLICATION = 'sistemarural.wsgi.application'
 #     }
 # }
 
-# Banco de dados PostgreSQL
+# Banco de dados PostgreSQL Render
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': config('DB_NAME'),
+#         'USER': config('DB_USER'),
+#         'PASSWORD': config('DB_PASSWORD'),
+#         'HOST': config('DB_HOST'),
+#         'PORT': config('DB_PORT'),
+#     }
+# }
+
+# Banco de dados PostgreSQL Supabase
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
-    }
+    'default': dj_database_url.config(default=config("DATABASE_URL"))
 }
 
 DEBUG = config('DEBUG', default=False, cast=bool)

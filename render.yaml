@@ -1,8 +1,9 @@
-databases:
-  - name: muucontrol_db
-    plan: free
-    databaseName: sistemarural
-    user: sistemarural_user
+# databases:
+#   - name: muucontrol_db
+#     plan: free
+#     databaseName: sistemarural
+#     user: sistemarural_user
+# desativado temporariamente por burrice minha
 
 services:
   - type: web
