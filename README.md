@@ -27,6 +27,8 @@ A proposta é facilitar o **registro e gestão de dados** relacionados a:
 - Tailwind CSS 4
 - PostgreSQL
 - VS Code + WSL (Ubuntu)
+- Render --> web site
+- Supabase --> banco de dados
 
 ---
 
@@ -70,10 +72,10 @@ projeto_integrador_1/
 
 ## 🚧 Status do projeto
 
-🛠️ **Em desenvolvimento**  
-Atualmente na fase de:
+🛠️ **Finalizado**  
+Online em:
 
-- refinamento da estrutura
+- https://sistemarural.onrender.com/
 
 ---
 
@@ -92,25 +94,16 @@ Atualmente na fase de:
 
 ## ▶️ Como executar localmente
 
-### ✅ Iniciar o projeto
+### ✅ Iniciar o projeto em DEV
 
 ```bash
-npm install
+npm i
+npm run venv
+npm run requirements
+npm run freeze
+npm run makemigrations
+npm run migrate
 npm run dev
 ```
-
-### 🐍 Alternativa manual
-
-```bash
-bash scripts/dev.sh
-```
-
-### 🧱 Instalação do zero
-
-```bash
-bash scripts/setup.sh
-```
-
----
 
 Feito com 💙 para a disciplina de **Projeto Integrador** da UNIVESP.
